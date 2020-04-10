@@ -1,0 +1,25 @@
+println "i am config file"
+println("i am config.gradle of name:" + project.name + " display name:" + project.displayName)
+
+ext {
+    compileSdkVersion = 29
+    println this
+    println project
+    /*{ ->
+        println delegate
+    }()*/
+    /*c = {
+        println delegate
+    }
+    println c
+    c()
+    dd = {
+        acb ->
+            println delegate
+    }
+    dd()*/
+
+//    { abc ->
+//        println delegate
+//    }()
+}
