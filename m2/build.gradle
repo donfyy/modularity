@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'
+apply plugin: (rootProject.ext.isRelease ? 'com.android.library':'com.android.application')
 println("i am build.gradle of name:" + project.name + " display name:" + project.displayName)
 
 android {
