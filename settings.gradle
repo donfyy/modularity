@@ -1,3 +1,5 @@
+include ':annotationsProcessor'
+include ':annotations'
 include ':m2'
 include ':m1'
 include ':common'
