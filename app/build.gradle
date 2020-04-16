@@ -22,12 +22,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    //支持Java8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(":m1")
-    implementation project(":m2")
+    if (rootProject.ext.isRelease){
+        implementation project(":m1")
+        implementation project(":m2")
+    }
+    implementation project(":common")
+    annotationProcessor project(":annotationsProcessor")
     implementation rootProject.ext.dependencies["appcompat"]
     implementation rootProject.ext.dependencies["constraintlayout"]
     testImplementation rootProject.ext.dependencies["junit"]
