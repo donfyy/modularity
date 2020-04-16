@@ -2,6 +2,7 @@ package com.donfyy.m1;
 
 import android.os.Bundle;
 
+import com.donfyy.annotations.BindView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -11,6 +12,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
+    @BindView
+    String hi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

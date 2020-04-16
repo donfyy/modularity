@@ -34,5 +34,6 @@ dependencies {
     androidTestImplementation rootProject.ext.dependencies["ext_junit"]
     androidTestImplementation rootProject.ext.dependencies["espresso_core"]
     implementation project(":common")
+    annotationProcessor project(":annotationsProcessor")
 
 }
