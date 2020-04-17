@@ -8,6 +8,7 @@ import com.squareup.javapoet.TypeSpec;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
@@ -36,7 +37,8 @@ public class ProcessorA extends AbstractProcessor {
         super.init(processingEnvironment);
         mMessager = processingEnvironment.getMessager();
         mFiler = processingEnvironment.getFiler();
-        mMessager.printMessage(Diagnostic.Kind.WARNING, "say hello");
+        Locale locale = processingEnvironment.getLocale();
+        mMessager.printMessage(Diagnostic.Kind.WARNING, "say hello:" + (locale == null ? "" : locale.getDisplayName()));
     }
 
     @Override
