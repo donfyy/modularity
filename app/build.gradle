@@ -38,6 +38,7 @@ dependencies {
     }
     implementation project(":common")
     annotationProcessor project(":annotationsProcessor")
+    annotationProcessor project(":processor2")
     implementation rootProject.ext.dependencies["appcompat"]
     implementation rootProject.ext.dependencies["constraintlayout"]
     testImplementation rootProject.ext.dependencies["junit"]

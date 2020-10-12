@@ -1,3 +1,6 @@
+include ':processor2'// 通过 include 语句指出项目包含的模块
+include ':ktlib1'
+include ':javalib1'
 include ':annotationsProcessor'
 include ':annotations'
 include ':m2'
