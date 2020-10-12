@@ -14,6 +14,12 @@ android {
         versionName rootProject.ext.versionName
 
         testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [pkgName: "com.donfyy.modularity"]
+            }
+        }
     }
 
     buildTypes {

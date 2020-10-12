@@ -122,6 +122,8 @@ JavaPoet是一个用来生成Java代码的框架，使用oop思想对类、方�
 @SupportedAnnotationTypes("com.donfyy.annotations.BindView2")
 // 指出此处理器支持的源码版本
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
+// 指出此处理器可以接收的参数
+@SupportedOptions("pkgName")
 public class Processor2 extends AbstractProcessor {
     
     // 初始化注解处理器
@@ -134,6 +136,8 @@ public class Processor2 extends AbstractProcessor {
         messager = processingEnvironment.getMessager();
         // 获取写出源码的工具
         filer = processingEnvironment.getFiler();
+        // 通过getOptions().get("pkgName")获取参数值
+        String pkgName = processingEnvironment.getOptions().get("pkgName");
     }
     // 处理注解，若注解被处理返回true，否则返回false
     @Override
@@ -155,7 +159,22 @@ com.donfyy.processor2.Processor2
 4.在模块中声明注解处理器
 
 ```groovy
+
+android {
+    // ...
+    defaultConfig {
+        // ...
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // 在构建文件中设置参数值
+                arguments = [pkgName: "com.donfyy.modularity"]
+            }
+        }
+    }
+}
+    // 使用注解处理器，注意此处的名字和注解处理器所在的模块名相同
     annotationProcessor project(":processor2")
+
 ```
 
 至此，完成了apt开发的一个固定流程，核心在于Processor2中对于注解的处理，这里根据业务逻辑进行编码。

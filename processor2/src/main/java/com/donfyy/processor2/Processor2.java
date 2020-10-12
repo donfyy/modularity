@@ -17,6 +17,7 @@ import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
+import javax.annotation.processing.SupportedOptions;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
@@ -34,6 +35,8 @@ import javax.tools.JavaFileObject;
 @SupportedAnnotationTypes("com.donfyy.annotations.BindView2")
 // 指出此处理器支持的源码版本
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
+// 指出此处理器可以接收的参数
+@SupportedOptions("pkgName")
 public class Processor2 extends AbstractProcessor {
 
     // 操作Element的工具类（类，函数，属性，其实都是Element）
@@ -56,7 +59,8 @@ public class Processor2 extends AbstractProcessor {
         filer = processingEnvironment.getFiler();
 //        String myvalue = processingEnvironment.getOptions().get("myvalue");
         // messager.printMessage(Diagnostic.Kind.ERROR); // 注意：会报错  Log.e
-        messager.printMessage(Diagnostic.Kind.NOTE, "processor2 init");
+        String pkgName = processingEnvironment.getOptions().get("pkgName");
+        messager.printMessage(Diagnostic.Kind.NOTE, "processor2 init pkgName = " + pkgName);
     }
 
     @Override
