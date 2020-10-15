@@ -187,3 +187,4 @@ android {
 - [项目概览](https://developer.android.com/studio/projects)
 - [Android APT 实例讲解](https://developer.aliyun.com/article/722451)
 - [javapoet](https://github.com/square/javapoet)
+- [编程语言的自举](https://segmentfault.com/q/1010000000692678)
